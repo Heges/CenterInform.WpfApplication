@@ -22,7 +22,9 @@ namespace CenterInform.Serializator
         /// <returns></returns>
         public async Task ImportTo<Tvalue>(IEnumerable<Tvalue> tvalue, string pathSave = null)
         {
-            pathSave ??= "G:\\f\\TMP\\c#\\CenterInform.Solution\\SerializationFolder";
+            string workingDirectory = Environment.CurrentDirectory;
+
+            pathSave ??= Directory.GetParent(workingDirectory).Parent.Parent.FullName + "\\SerializationFolder";
             string name = DateTime.Now.ToFileTimeUtc().ToString();
             try
             {

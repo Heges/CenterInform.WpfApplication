@@ -41,7 +41,8 @@ namespace CenterInform.Presentation
                 {
                     var context = serviceProvider.GetRequiredService<EmployeDbContext>();
                     DbInitializer.Initialize(context);
-                    FolderInitializer.Initialize("G:\\f\\TMP\\c#\\CenterInform.Solution\\SerializationFolder");
+
+                    FolderInitializer.Initialize(null); //"G:\\f\\TMP\\c#\\CenterInform.Solution\\SerializationFolder"
                 }
                 catch (System.Exception ex)
                 {

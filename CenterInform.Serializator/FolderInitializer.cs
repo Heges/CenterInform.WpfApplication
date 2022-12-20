@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace CenterInform.Serializator
 {
@@ -6,6 +7,13 @@ namespace CenterInform.Serializator
     {
         public static void Initialize(string path)
         {
+            if (path == null)
+            {
+                string workingDirectory = Environment.CurrentDirectory;
+
+                path = Directory.GetParent(workingDirectory).Parent.Parent.FullName + "\\SerializationFolder";
+            }
+
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
